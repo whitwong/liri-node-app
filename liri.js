@@ -24,15 +24,13 @@ var lookup = {
 	"spotify-this-song": function(args){
 		var spotify = new Spotify(keys.spotifyKeys);
 		var songSearch = "";
-		for (var i=0; i<args.length; i++){
-			if (i>0 && i<args.length){
-				songSearch = args.join("+");
-			}
-			else{
-				songSearch = args[i];
-			}
+		if (args.length > 1){
+			songSearch = args.join("+");
 		}
-		if (args == ""){
+		else if (args.length === 1){
+			songSearch = args.join();
+		}
+		else{
 			songSearch = "The+Sign+Ace+of+Base";
 		}
 		spotify.search({ type: 'track', query: songSearch }, function(error, data) {
@@ -49,15 +47,13 @@ var lookup = {
 	//Function that takes movie name input and searches OMDB. Displays movie information.
 	"movie-this": function(args){
 		var movieSearch = "";
-		for (var i=0; i<args.length; i++){
-			if (i>0 && i<args.length) {
-				movieSearch = args.join("+");
-			}
-			else{
-				movieSearch = args[i];
-			}
+		if (args.length > 1){
+			movieSearch = args.join("+");
 		}
-		if (args == ""){
+		else if (args.length === 1){
+			movieSearch = args.join();
+		}
+		else{
 			movieSearch = "Mr.+Nobody";
 		}
 		var queryURL = "http://www.omdbapi.com/?apikey=40e9cece&t=" + movieSearch;
