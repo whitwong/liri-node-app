@@ -24,11 +24,8 @@ var lookup = {
 	"spotify-this-song": function(args){
 		var spotify = new Spotify(keys.spotifyKeys);
 		var songSearch = "";
-		if (args.length > 1){
+		if (args.length >= 1){
 			songSearch = args.join("+");
-		}
-		else if (args.length === 1){
-			songSearch = args.join();
 		}
 		else{
 			songSearch = "The+Sign+Ace+of+Base";
@@ -47,11 +44,8 @@ var lookup = {
 	//Function that takes movie name input and searches OMDB. Displays movie information.
 	"movie-this": function(args){
 		var movieSearch = "";
-		if (args.length > 1){
+		if (args.length >= 1){
 			movieSearch = args.join("+");
-		}
-		else if (args.length === 1){
-			movieSearch = args.join();
 		}
 		else{
 			movieSearch = "Mr.+Nobody";
