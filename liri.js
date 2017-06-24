@@ -50,10 +50,10 @@ var lookup = {
 		else{
 			movieSearch = "Mr.+Nobody";
 		}
-		var queryURL = "http://www.omdbapi.com/?apikey=40e9cece&t=" + movieSearch;
+		var queryURL = "http://www.omdbapi.com/?apikey=40e9cece&t=" + movieSearch +"&tomatoes=true";
 		request(queryURL, function(error, response, body){
 			if (!error && response.statusCode === 200){
-				// console.log(JSON.parse(body)); //Used to review JSON object.
+				//console.log(JSON.parse(body)); //Used to review JSON object.
 				var parsed = JSON.parse(body);
 				console.log("Movie Title: " + parsed.Title);
 				console.log("Release Year: " + parsed.Year);
@@ -62,7 +62,7 @@ var lookup = {
 				console.log("Movie Language: " + parsed.Language);
 				console.log("Plot: " + parsed.Plot);
 				console.log("Actors: " + parsed.Actors);
-				console.log("Movie Website: " + parsed.Website);
+				console.log("Rotten Tomatoes URL: " + parsed.tomatoURL);
 			}
 		});
 	},
