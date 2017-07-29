@@ -93,5 +93,5 @@ fs.appendFile("log.txt", process.argv, function(error){
   if (error) {
     console.log(error);
   }
-  console.log("Content Added!");
+  console.log("Request Logged!");
 });
